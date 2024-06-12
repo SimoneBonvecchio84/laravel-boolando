@@ -1,8 +1,8 @@
 @extends('layouts.app')
 
 @section('content')
-    <h2 class="text-center">Cards</h2>
-    <div class="container py-5">
+<div class="container py-5">
+        <h2 class="text-center py-5">Cards</h2>
         <div class="row ">
             <div class="col d-flex justify-content-around gap-4 flex-wrap">
                 @foreach ($cards as $curCard)
