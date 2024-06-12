@@ -15,4 +15,9 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('home');
-});
+})->name("home");
+
+Route::get('/cards', function() {
+    $cards = config("boolando_db.products");
+    return view('cards' ,compact('cards'));
+})->name('cards');
