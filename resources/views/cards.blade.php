@@ -6,10 +6,25 @@
         <div class="row ">
             <div class="col d-flex justify-content-around gap-4 flex-wrap">
                 @foreach ($cards as $curCard)
-                    <div class="card" style="width:20rem;">
-                        <img src="{{ Vite::asset('resources/img/' . $curCard['frontImage']) }}" alt="">
+                    <div class="card position-relative" style="width:20rem;">
+                        <img class="img-fluid backImage "  src="{{ Vite::asset('resources/img/' .$curCard['backImage']) }}" alt="">
+                        <img class="frontImage img-fluid position-absolute top-0 start-0" src="{{ Vite::asset('resources/img/' . $curCard['frontImage']) }}" alt="">
                         <div class="card-body">
-                            {{ $curCard['name'] }}
+                            <p>
+                                {{ $curCard['brand'] }}
+                            </p>
+                            <h5>
+                                {{ $curCard['name'] }}
+                            </h5>
+                            <span> {{ $curCard['price'] }} </span>
+                            @foreach ($curCard['badges'] as $curBadge )
+                                <span>
+                                    {{ $curBadge['value'] }} 
+                                    @if ($curBadge['type'] === "discount")
+                                                                 
+                                    @endif
+                                </span>
+                            @endforeach
                         </div>
                     </div>
                 @endforeach
